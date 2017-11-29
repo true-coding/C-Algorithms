@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/counting_finding.dir/main.cpp.o  -o counting_finding 

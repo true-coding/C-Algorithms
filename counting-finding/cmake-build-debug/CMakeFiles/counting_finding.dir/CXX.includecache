@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/x9zode/Apps/C++/Algorithms/counting-finding/main.cpp
+iostream
+-
+vector
+-
+string
+-
+algorithm
+-
+map
+-
+

@@ -8,7 +8,7 @@ using namespace std;
 
 int main() {
 
-    vector<int> v{ 5,9,6,2,8,-4,5,9,7,-11,0,9,655 };
+    vector<int> v{ 5,9,6,2,8,-4,5,9,7,-11,0,9,9,7,655 };
 
     """ count how many entries have the target value (9). """;
     int nine = 0;
@@ -66,56 +66,87 @@ int main() {
     cout << "year has: " << longmonths << " months with 31 days." << endl;
 
 
+    """--- FINDING ---""";
 
+    vector<int> f{ 5, 8, 2, -8, 0, 44, 987, 2, 4, 66, 74, 2, 4 };
+    string s{ "I am a magic string" };
+
+    """ find first (0) in the collection """;
+    auto result = find(begin(f), end(f), 0);
+    int found = *result;
+    cout << "found: " << found << endl;
+
+
+    """ find first 2 after that zero """;
+    result = find(result, end(f), 2);
+    if (result != end(v))
+    {
+        found = *result;
+    }
+    cout << "found: " << found << endl;
+
+
+    """ find first (m) in string (s) """;
+    auto letter = find(begin(s), end(s), 'm');
+    char a = *letter;
+    cout << "first letter (m): " << a << " in string (s)" << endl;
+
+
+    """ find first odd value  """;
+    result = find_if(begin(v), end(v), [](auto e) { return e % 2 != 0; });
+    found = *result;
+    cout << "odd element: " << found << endl;
+
+
+    """ find first even value """;
+    result = find_if_not(begin(v), end(v), [](auto e) { return e % 2 != 0; });
+    found = *result;
+    cout << "even element: " << found << endl;
+
+
+    """ find first prime in vector (v). """;
+    vector<int> primes{ 1,2,3,5,7,11,13 };
+    result = find_first_of(begin(v), end(v), begin(primes), end(primes));
+    found = *result;
+    cout << "first prime: " << found << endl;
+
+
+    """ find first number after sub sequence of ( 9, 7 ) in vector (v).  """;
+    vector<int> subsequence{ 9, 7 };
+    result = search(begin(v), end(v), begin(subsequence), end(subsequence));
+    found = *result;
+    result++; result++;
+    int minuseleven = *result;
+    cout << "-11: " << minuseleven << endl;
+
+
+    """ find first string 'am' in vector (s).  """;
+    string am = "am";
+    letter = search(begin(s), end(s), begin(am), end(am)),
+    a = *letter;
+    cout << "letter a: " << a << endl;
+
+
+    """ find first number after last sub sequence of ( 9, 7 ) in vector (v).  """;
+    result = find_end(begin(v), end(v), begin(subsequence), end(subsequence));
+    result++; result++;
+    int sff = *result;
+    cout << "655: " << sff << endl;
+
+    """ find sequence of values (9,9), end return first value before that sequence.  """;
+    result = search_n(begin(v), end(v), 2, 9);
+    result--;
+    int secondnine = *result;
+    cout << "second nine: " << secondnine << endl;
+
+
+    """ find first sequence of same values (?,?). """;
+    result = adjacent_find(begin(v), end(v));
+    nine = *result;
+    result++;
+    nine =  *result;
+    cout << "nine: " << nine << endl;
 
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
